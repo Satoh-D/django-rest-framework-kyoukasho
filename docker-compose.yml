@@ -1,14 +1,25 @@
 version: '3'
 
 services:
+    db:
+        image: mysql:5.7
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: django
+            MYSQL_USER: django
+            MYSQL_DATABASE: django
+            MYSQL_PASSWORD: django
+        ports:
+            - "3306:3306"
     web:
         build: ./docker/python/
         tty: true
-        container_name: python
         volumes: 
             - ./src:/code
         ports: 
             - "8000:8000"
+        depends_on:
+            - db
 
         
 
