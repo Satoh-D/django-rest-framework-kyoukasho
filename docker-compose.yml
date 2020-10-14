@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    web:
+        build: ./docker/python/
+        tty: true
+        container_name: python
+        volumes: 
+            - ./src:/code
+        ports: 
+            - "8000:8000"
+
+        
+
+
+    
