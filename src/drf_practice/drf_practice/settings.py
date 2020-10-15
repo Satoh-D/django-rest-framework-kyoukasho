@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # practice
     'chapter01',
     'chapter02',
+    'chapter03',
 ]
 
 MIDDLEWARE = [
