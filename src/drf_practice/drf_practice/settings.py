@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 
     # Django REST Framework
     'rest_framework',
+
+    # practice
+    'chapter01',
+    'chapter02',
 ]
 
 MIDDLEWARE = [

@@ -7,7 +7,7 @@ class Publisher(models.Model):
     """出版社モデル"""
 
     class Meta:
-        db_table = 'publisher'
+        db_table = 'chapter02_publisher'
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(verbose_name='出版社名', max_length=20)
@@ -17,7 +17,7 @@ class Author(models.Model):
     """著者モデル"""
 
     class Meta:
-        db_table = 'author'
+        db_table = 'chapter02_author'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(verbose_name='著者名', max_length=20)
@@ -31,7 +31,7 @@ class Book(models.Model):
     class Meta:
         # モデルの使うデータベーステーブルの名前を定義
         # 基本はクラス名から暗黙で推測を行ってくれるが、オーバーライドしたい場合に使う
-        db_table = 'book'
+        db_table = 'chapter02_book'
         # オブジェクトのリストを取得するときの並び順を定義
         ordering = ['created_at']
         # verbose_name: 人間可読なオブジェクト名の単数形
@@ -64,7 +64,7 @@ class BookStock(models.Model):
     """本の在庫モデル"""
 
     class Meta:
-        db_table = 'book_stock'
+        db_table = 'chapter02_book_stock'
 
     # book_id: 関連するBookの主キーを参照
     # book: 関連するBook自体を参照
