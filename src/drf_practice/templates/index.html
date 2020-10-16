@@ -162,7 +162,7 @@
                             this.message.info = this.isCreated ? '更新しました' : '登録しました'
                             this.form.book = response.data
                         })
-                        catchh(error => {
+                        .catch(error => {
                             const status = error.response ? error.response.status : 500
                             if (status === 400) {
                                 // バリデーションNG
@@ -178,13 +178,12 @@
                                 this.message.erro = '想定外のエラーです'
                             }
                         })
-                    },
-                    // メッセージをクリア
-                    clearMessages: function() {
-                        this.message.error = ''
-                        this.message.warnaings = []
-                        this.message.info = ''
-                    }
+                },
+                // メッセージをクリア
+                clearMessages: function() {
+                    this.message.error = ''
+                    this.message.warnaings = []
+                    this.message.info = ''
                 }
             }
         })
