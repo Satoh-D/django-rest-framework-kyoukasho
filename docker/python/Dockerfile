@@ -5,6 +5,13 @@ FROM python:3.7-stretch
 ENV PYTHONBFFERED 1
 RUN mkdir /code
 
+# nodejsのインストール
+RUN apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+
+RUN npm install -g @vue/cli
+
 # ワーキングディレクトリを変更
 WORKDIR /code
 
