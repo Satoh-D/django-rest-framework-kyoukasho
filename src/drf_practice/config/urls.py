@@ -14,8 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path, include
+from django.views.generic import TemplateView, RedirectView
+
+# (POST) /api/v1/auth/jwt/create    : ログイン（djoserを利用）
+# (POST) /api/v1/auth/users/me/     : ユーザー情報の取得（djoserを利用）
+# (POST) /api/v1/books/             : 本の情報を登録する
+# (PUT)  /api/v1/books/<pk>/        : 本の情報を更新する
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('api/v1/auth/', include('djoser.urls')),
+    path('api/v1/auth/', include('djoser.urls.jwt')),
+    path('api/v1/', include('apiv1.urls')),
+    # リクエストURLが他のどのパターンにも一致しなかった場合に「/」にリダイレクト
+    re_path('', RedirectView.as_view(url='/')),
 ]
