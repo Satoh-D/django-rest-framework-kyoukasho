@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',           # (1) Django REST Framework 追加
 
     # My Applications
-    'apiv1.apps.Apiv1config',   # (1) shopアプリケーション追加
+    'apiv1.apps.Apiv1Config',   # (1) shopアプリケーション追加
     'shop.apps.ShopConfig'      # (1) apiv1アプリケーション追加
 ]
 
