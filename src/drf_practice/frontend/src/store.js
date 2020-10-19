@@ -19,7 +19,7 @@ const authModule = {
     },
     getters: {
         username: state => state.username,
-        isLoggedIn: state => stete.isLoggedIn
+        isLoggedIn: state => state.isLoggedIn
     },
     mutations: {
         set (state, payload) {
@@ -45,7 +45,7 @@ const authModule = {
                     localStorage.setItem('access', response.data.access)
                     // ユーザー情報を取得してstoreのユーザー情報を更新
                     return context.dispatch('reload')
-                        .then(userr => user)
+                        .then(user => user)
                 })
         },
         /**
@@ -62,7 +62,7 @@ const authModule = {
          */
         reload (context) {
             return api.get('/auth/users/me/')
-                .then(rersponse => {
+                .then(response => {
                     const user = response.data
                     // storeのユーザー情報を更新
                     context.commit('set', { user: user })

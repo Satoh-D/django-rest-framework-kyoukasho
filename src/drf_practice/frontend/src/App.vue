@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Vue Routerに関連するディレクティブ -->
     <!-- URLにマッチングしたコンポーネントが描画される -->
-    <router-vuew />
+    <router-view />
   </div>
 </template>
 
