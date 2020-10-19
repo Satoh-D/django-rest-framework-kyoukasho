@@ -72,3 +72,5 @@ function forceToLoginPage(to, from, next) {
         query: { next: to.fullPath }
     })
 }
+
+export default router
