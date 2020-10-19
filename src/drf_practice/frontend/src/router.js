@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomePage from '@/pages/HomePage',
-import LoginPage from '@/pages/LoginPage',
+import HomePage from '@/pages/HomePage'
+import LoginPage from '@/pages/LoginPage'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -59,12 +59,12 @@ router.beforeEach((to, from, next) => {
         console.log('Go to public page.')
         next()
     }
-});
+})
 
 /**
  * ログイン画面へ強制送還
  */
-funciton forceToLoginPage(to, from, next) {
+function forceToLoginPage(to, from, next) {
     console.log('Force user to login page.')
     next({
         path: '/login',
