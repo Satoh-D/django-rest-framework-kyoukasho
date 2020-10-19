@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # 3rd party apps
     'rest_framework',   # (1) rest_frameworkの追加
     'djoser',           # (1) djsoserの追加
+    'corsheaders',
 
     # My Applications
     'apiv1.apps.Apiv1Config',   # (1) API用アプリケーションの追加
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -144,3 +146,10 @@ SIMPLE_JWT = {                                      # (2) DRFのJWT認証の設�
     'AUTH_HEADER_TYPES': ('JWT',),                  # (2) DRFのJWT認証の設定
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30)  # (2) DRFのJWT認証の設定
 }                                                   # (2) DRFのJWT認証の設定
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+)
