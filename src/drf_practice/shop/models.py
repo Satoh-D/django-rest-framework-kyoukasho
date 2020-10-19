@@ -7,7 +7,7 @@ class Book(models.Model):
     """本モデル"""
 
     class Meta:
-        db_name = 'book'
+        db_table = 'book'
     
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
